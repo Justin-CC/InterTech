@@ -84,18 +84,18 @@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="login">
-                        <form class="form-horizontal" method="post" action="">
+                        <form class="form-horizontal" method="post" action="/login/">
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                                    <input style="font-family: Tempus Sans ITC;font-weight: bold;" type="text" name="login_email" class="form-control" placeholder="Please input your E-mail" required="required" value="">
+                                    <input style="font-family: Tempus Sans ITC;font-weight: bold;" type="text" name="user" class="form-control" placeholder="Please input your username" required="required" value="">
                                 </div>
                             </div>
                                 
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-key"></i></div>
-                                    <input style="font-family: Tempus Sans ITC;font-weight: bold;" type="password" name="login_password" class="form-control" placeholder="Please input your password" required="required">
+                                    <input style="font-family: Tempus Sans ITC;font-weight: bold;" type="password" name="pwd" class="form-control" placeholder="Please input your password" required="required">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -104,6 +104,7 @@
                                 <!-- <a href="#" class="pull-right" style="font-family: Rockwell">Forget your password?</a> -->
                             </div>
                             <input type="submit" value="Log in" class="btn btn-success btn-custom">
+                            <span style="color: red;">{{ error }}</span>
                         </form>
                     </div>
                 </div>
