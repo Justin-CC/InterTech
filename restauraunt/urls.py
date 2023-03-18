@@ -21,11 +21,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-   path('', views.index, name='index'),
-   path('rango/', include('rango.urls')),
-   path('admin/', admin.site.urls),
-   ]
-
+    path('', views.index, name='index'),
+    path('rango/', include('rango.urls')),
+    path('admin/', admin.site.urls),
+    path("login/", views.login),
+    path("register/", views.register),
+    path("aboutus/", views.aboutus),
+    path("contactus/", views.contactus),
+    path("faqs/", views.faqs),
+    path("menu/", views.menu),
+    path("menu_detail/", views.menu_detail),
+]
 
 # ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

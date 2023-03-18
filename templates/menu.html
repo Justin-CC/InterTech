@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" -->
+    <!-- integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kD4Ck5BdPtF+to8xMp9Mvc/b" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+    <style>
+        .menu #menu-flters {
+            padding: 0;
+            margin: 0 auto 0 auto;
+            list-style: none;
+            text-align: center;
+            border-radius: 50px;
+        }
+
+        .menu #menu-flters li {
+            cursor: pointer;
+            display: inline-block;
+            padding: 8px 16px 10px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1;
+            color: #444444;
+            margin: 0 3px 10px 3px;
+            transition: all ease-in-out 0.3s;
+            background: #fff;
+            border: 2px solid rgb(96, 169, 189);
+            border-radius: 50px;
+        }
+
+        .menu #menu-flters li:hover,
+        .menu #menu-flters li.filter-active {
+            color: #fff;
+            background: rgb(96, 169, 189);
+        }
+
+        .menu #menu-flters li:last-child {
+            margin-right: 0;
+        }
+
+        .menu .menu-content {
+            margin-top: 30px;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            color: rgb(97, 96, 96);
+        }
+
+        .menu .menu-content::after {
+            content: "......................................................................" "...................................................................." "....................................................................";
+            position: absolute;
+            left: 20px;
+            right: 0;
+            top: -4px;
+            z-index: 1;
+            color: #dad8d4;
+        }
+
+        .menu .menu-content a {
+            padding-right: 10px;
+            background: #fff;
+            position: relative;
+            z-index: 3;
+            font-weight: 700;
+            color: rgb(6, 107, 141);
+            font-family: Tempus Sans ITC;
+        }
+
+        .menu .menu-content span {
+            background: #fff;
+            position: relative;
+            z-index: 3;
+            padding: 0 10px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-family: "Satisfy", sans-serif;
+        }
+
+        .section-bg {
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        .section-title p {
+            margin: 15px auto 0 auto;
+            font-weight: 300;
+        }
+
+        @media (min-width: 1024px) {
+            .section-title p {
+                width: 50%;
+            }
+        }
+
+        .menu .menu-content > span {
+            font-family: Tempus Sans ITC;
+            color: rgb(81, 79, 79);
+        }
+    </style>
+    <title>Restaurant Menu</title>
+</head>
+
+<body>
+<section id="menu" class="menu">
+    <div class="container">
+        <nav class="navbar navbar-default" role="navigation"
+             style="font-family: Tempus Sans ITC; font-size: 20px; font-weight: bold;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <p style="font-size: 25px; color: rgb(6, 107, 141); text-shadow: 3px 3px 3px darkgray;">
+                        Delicious</p>
+                    <!-- <a class="navbar-brand" href="#">Delicious</a> -->
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        <li class="active"><a href="/menu">Menu</a></li>
+                        <li><a href="/aboutus">About Us</a></li>
+                        <li><a href="/contactus">Contact Us</a></li>
+                        <li><a href="/faqs">FAQs</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/login">Log in</a></li>
+                        <li><a href="/register">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="section-title">
+            <h3 style="text-align: center; color: rgb(6, 107, 141); font-family: Tempus Sans ITC; font-size: 38px; text-shadow: 3px 3px 3px darkgray;">
+                Check our tasty <span style="font-weight: bold; color: rgb(96, 169, 189);">Menu</span></h3>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <ul id="menu-flters" style="font-family: Tempus Sans ITC; font-size: 18px; font-weight: bolder; ">
+                    <li data-filter="*" class="filter-active">Show All</li>
+                    <li data-filter=".filter-starters">Starters</li>
+                    <li data-filter=".filter-salads">Scoup Bowl</li>
+                    <li data-filter=".filter-specialty">Specialty</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row menu-container">
+
+            <div class="col-lg-6 menu-item filter-starters">
+                <div class="menu-content">
+                    <a href="#">Breaded King Prawns</a><span>￡4.95</span>
+                </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-specialty">
+                <div class="menu-content">
+                    <a href="#">Khao Sawy</a><span>￡9.95</span>
+                </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-starters">
+                <div class="menu-content">
+                    <a href="#">Bruschetta Pomodoro</a><span>￡4.95</span>
+                </div>
+            </div>
+
+            <div class="col-lg-6 menu-item filter-salads">
+                <div class="menu-content">
+                    <a href="#">NUA TOM TING THAI</a><span>￡8.00</span>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 menu-item filter-specialty">
+                <div class="menu-content">
+                    <a href="#">KHAO MOO DAENG</a><span>￡9.95</span>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 menu-item filter-starters">
+                <div class="menu-content">
+                    <a href="#">Mozzarella Fritter</a><span>￡5.20</span>
+                </div>
+
+            </div>
+            <div class="col-lg-6 menu-item filter-salads">
+                <div class="menu-content">
+                    <a href="#">TOM KHA GAI</a><span>￡8.95</span>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 menu-item filter-salads">
+                <div class="menu-content">
+                    <a href="#">TOM YAM</a><span>￡9.95</span>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 menu-item filter-specialty">
+                <div class="menu-content">
+                    <a href="#">KHAO MUN GAI TOD</a><span>￡10.95</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSGFpoO/MBOL2SswKR+jwSlD1bxCBKRRgUJ4mkUzC6L1IVZFqdU" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoJtKh7z7lGz7fuP4F8nfdFvAOA6Gg/z6Y5J6XqqyGXYM2ntX6" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-b0c4ea4f8f61b5a0mgx90j8Fni1l4v6f/Z-c2mo4z8J4gTuPl4z6L4gxfc7Ljg8U" crossorigin="anonymous">
+    </script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+<script>
+    $(document).ready(function () {
+        $("#menu-flters li").on("click", function () {
+            var selectedFilter = $(this).attr("data-filter");
+            $("#menu-flters li").removeClass("filter-active");
+            $(this).addClass("filter-active");
+
+            if (selectedFilter === "*") {
+                $(".menu-item").show();
+            } else {
+                $(".menu-item").hide();
+                $(selectedFilter).show();
+            }
+        });
+    });
+</script>
+</html>

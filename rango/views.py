@@ -3,8 +3,11 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse
 
+
 def index(request):
     return render(request, "index.html")
+
+
 #     category_list = Category.objects.order_by('-likes')[:5]
 #     page_list = Page.objects.order_by('-views')[:5]
 #
@@ -82,3 +85,38 @@ def index(request):
 #     context_dict = {'form': form, 'category': category}
 #     return render(request, 'rango/add_page.html', context=context_dict)
 
+def login(request):
+    # 判断到底是POST请求还是GET请求
+    if request.method == "GET":
+        return render(request, 'login.html')
+    else:
+
+        # 去请求中获取数据，再进行校验
+        username = request.POST.get('user')
+        password = request.POST.get('pwd')
+
+        # 去数据库中校验，用户名和密码的合法性
+
+        # 成功，跳转到index http://127.0.0.1:8000/index/    /index/
+        # return redirect('/index')
+
+        # 不成功，再次让用户看到login页面 -> 用户名或密码错误
+        # return request('/login.html', {"error": "用户名或密码错误"})
+
+        if username == 'root' and password == '123':
+            return redirect('index')
+        else:
+            return render(request, 'login.html', {"error": "The user name or password is incorrect"})
+
+def register(request):
+    return render(request, "register.html")
+def menu(request):
+    return render(request, "menu.html")
+def menu_detail(request):
+    return render(request, "menu_detail.html")
+def aboutus(request):
+    return render(request, "aboutus.html")
+def contactus(request):
+    return render(request, "contactus.html")
+def faqs(request):
+    return render(request, "faqs.html")

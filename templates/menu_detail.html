@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in-Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        .dish-comment .btn-comment {
+            width: 20%;
+            background-color: rgb(10, 147, 165);
+            border-color: rgb(10, 147, 165);
+            margin-bottom: 0.5em;
+            border-radius: 0;
+            font-family: Tempus Sans ITC;
+            font-weight: bold;
+            border-radius: 20px;
+        }
+
+        .dish-comment .btn-comment:hover {
+            width: 20%;
+            background-color: rgb(56, 107, 141);
+            border-color: rgb(56, 107, 141);
+            font-family: Tempus Sans ITC;
+            font-weight: bold;
+        }
+
+        p, h2 {
+            font-size: 10px;
+            margin-top: 2px;
+            font-family: Tempus Sans ITC;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <nav class="navbar navbar-default" role="navigation"
+             style="font-family: Tempus Sans ITC; font-size: 20px; font-weight: bold;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <p style="font-size: 25px; color: rgb(6, 107, 141); text-shadow: 3px 3px 3px darkgray;">
+                        Delicious</p>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/menu">Menu</a></li>
+                        <li><a href="/aboutus">About Us</a></li>
+                        <li><a href="/contactus">Contact Us</a></li>
+                        <li><a href="/faqs">FAQs</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/login">Log in</a></li>
+                        <li><a href="/register">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<section id="specials" class="specials">
+    <div class="container">
+        <div class="section-title">
+            <h3
+                    style="text-align: center; color: rgb(6, 107, 141); font-family: Tempus Sans ITC; font-size: 38px; text-shadow: 3px 3px 3px darkgray;">
+                Would you like to taste this<span
+                    style="font-weight: bold; color: rgb(96, 169, 189);">&nbsp;Dish?</span></h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <ul class="nav nav-tabs flex-column">
+                    <div>
+                        <!-- dish picture -->
+                        <img src="about-us-picture.jpg" alt="" style="height: 250px; width: 250px;">
+                    </div>
+
+                </ul>
+            </div>
+            <div class="col-lg-9 mt-4 mt-lg-0">
+                <div class="tab-content">
+                    <div class="tab-pane active show" id="tab-1">
+                        <div class="row">
+                            <div class="col-lg-8 details order-2 order-lg-1">
+                                <!-- dish name -->
+                                <h3
+                                        style="text-align: left; color: rgb(74, 77, 78); font-family: Tempus Sans ITC; font-size: 28px; text-shadow: 3px 3px 3px darkgray;">
+                                    KHAO SAWY</h3>
+                                <!-- dish id -->
+                                <h3
+                                        style="text-align: left; color: rgb(74, 77, 78); font-family: Tempus Sans ITC; font-size: 28px; text-shadow: 3px 3px 3px darkgray;">
+                                    01</h3>
+                                <!-- dish category -->
+                                <h3
+                                        style="text-align: left; color: rgb(243, 173, 42); font-family: Tempus Sans ITC; font-size: 28px; text-shadow: 3px 3px 3px darkgray;">
+                                    Specialty</h3>
+                                <!-- dish price -->
+                                <h3
+                                        style="text-align: left; color: rgb(74, 77, 78); font-family: Tempus Sans ITC; font-size: 20px;">
+                                    ￡9.95</h3>
+                                <!-- dish description -->
+                                <h3
+                                        style="text-align: left; color: rgb(74, 77, 78); font-family: Tempus Sans ITC; font-size: 18px;">
+                                    crispy fried egg noodles w. seafood/chicken/beef/tofu, massaman curry broth,
+                                    ajard sauce</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="comment" class="dish-comment">
+    <div class="container">
+        <div class="row">
+            <!-- Comment List -->
+            <div class="col-md-4">
+                <div class="list">
+                    <h3
+                            style="text-align: center; color: rgb(95, 184, 213); font-family: Tempus Sans ITC; font-size: 22px; text-shadow: 3px 3px 3px darkgray;">
+                        Comment List</h3>
+                </div>
+                <form class="form-horizontal" method="get" action="">
+                    <div class="pre-scrollable">
+                        <ul class="media-list" style="list-style-type: none; margin-top: 30px;">
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
+                                             class="media-object">
+                                    </a>
+                                    <!-- Username -->
+                                    <h2>Username</h2>
+                                </div>
+                                <div class="media-body">
+                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis ad inventore cum
+                                        porro velit. Cumque, tenetur adipisci voluptatum obcaecati saepe quasi a
+                                        voluptate dolorem totam eius, neque cupiditate porro nostrum.</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
+                                             class="media-object">
+                                    </a>
+                                    <!-- Username -->
+                                    <h2 style="font-size: 10px; margin-top: 2px; font-family: Tempus Sans ITC;">
+                                        Username</h2>
+                                </div>
+                                <div class="media-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, quod odio
+                                        dicta tenetur commodi nemo corporis unde, alias aspernatur adipisci ea molestias
+                                        dolor delectus, architecto natus perferendis ullam amet non.</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
+                                             class="media-object">
+                                    </a>
+                                    <!-- Username -->
+                                    <h2 style="font-size: 10px; margin-top: 2px; font-family: Tempus Sans ITC;">
+                                        Username</h2>
+                                </div>
+                                <div class="media-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, quod odio
+                                        dicta tenetur commodi nemo corporis unde, alias aspernatur adipisci ea molestias
+                                        dolor delectus, architecto natus perferendis ullam amet non.</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
+                                             class="media-object">
+                                    </a>
+                                    <!-- Username -->
+                                    <h2 style="font-size: 10px; margin-top: 2px; font-family: Tempus Sans ITC;">
+                                        Username</h2>
+                                </div>
+                                <div class="media-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, quod odio
+                                        dicta tenetur commodi nemo corporis unde, alias aspernatur adipisci ea molestias
+                                        dolor delectus, architecto natus perferendis ullam amet non.</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
+                                             class="media-object">
+                                    </a>
+                                    <!-- Username -->
+                                    <h2 style="font-size: 10px; margin-top: 2px; font-family: Tempus Sans ITC;">
+                                        Username</h2>
+                                </div>
+                                <div class="media-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, quod odio
+                                        dicta tenetur commodi nemo corporis unde, alias aspernatur adipisci ea molestias
+                                        dolor delectus, architecto natus perferendis ullam amet non.</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
+                                             class="media-object">
+                                    </a>
+                                    <!-- Username -->
+                                    <h2 style="font-size: 10px; margin-top: 2px; font-family: Tempus Sans ITC;">
+                                        Username</h2>
+                                </div>
+                                <div class="media-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, quod odio
+                                        dicta tenetur commodi nemo corporis unde, alias aspernatur adipisci ea molestias
+                                        dolor delectus, architecto natus perferendis ullam amet non.</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
+                                             class="media-object">
+                                    </a>
+                                    <!-- Username -->
+                                    <h2 style="font-size: 10px; margin-top: 2px; font-family: Tempus Sans ITC;">
+                                        Username</h2>
+                                </div>
+                                <div class="media-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, quod odio
+                                        dicta tenetur commodi nemo corporis unde, alias aspernatur adipisci ea molestias
+                                        dolor delectus, architecto natus perferendis ullam amet non.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <!-- Comment Area -->
+            <div class="col-md-8">
+                <div class="tips">
+                    <h3
+                            style="text-align: center; color: rgb(95, 184, 213); font-family: Tempus Sans ITC; font-size: 22px; text-shadow: 3px 3px 3px darkgray;">
+                        Please don't forget to write down your evaluation of this dish!</h3>
+                </div>
+                <form class="form-horizontal" role="form" method="post" action="">
+                    <div class="form-group" style="text-align: center;">
+							<textarea class="form-control" rows="7"
+                                      placeholder="Please input your comment..."
+                                      style="margin: 30px 0 10px 0;"></textarea>
+                        <input type="submit" value="Submit" class="btn btn-success btn-comment"
+                               style="margin-top: 5px; ;">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
