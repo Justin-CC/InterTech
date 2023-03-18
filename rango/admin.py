@@ -1,13 +1,17 @@
 from django.contrib import admin
-# from rango.models import Category, Page
+from rango.models import Dish, User, Comment
 # 
 # class PageAdmin(admin.ModelAdmin):
 #     list_display = ('title', 'category', 'url')
 # 
-# class CategoryAdmin(admin.ModelAdmin):
-#     prepopulated_fields = {'slug':('name',)}
+class DishAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug':('dishname',)}
 # 
-# admin.site.register(Category, CategoryAdmin)
+admin.site.register(Dish, DishAdmin)
+admin.site.register(User)
+admin.site.register(Comment)
+
+
 # admin.site.register(Page, PageAdmin)
 
 
