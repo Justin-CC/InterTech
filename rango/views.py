@@ -122,9 +122,11 @@ def register(request):
         pwd = request.POST.get('register_password')
         pwd_confirm = request.POST.get('register_confirm_password')
 
+        user_object = models.User.objects.filter(username=username).first()
         if pwd != pwd_confirm:
             return render(request, 'register.html', {"error": "The password entered twice does not match"})
-
+        elif user_object:
+            return render(request, 'register.html', {"error": "The username already exists"})
         else:
             # 在这个else里，把这些东西存到用户数据库里，新建一个用户，密码存pwd, 但我不知道那个id怎么办，我想让他自动生成且不重复。研究一下
             return render(request, 'login.html')
