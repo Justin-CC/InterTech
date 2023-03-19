@@ -133,20 +133,24 @@ def register(request):
 def menu(request):
     # 这里要拿到全部的dish信息
     queryset = [
-        {'dishid': 1, 'dishname': "煲仔饭", 'type': '主菜', 'price': 9.99, 'dish_picture': '/static/images/rango.jpg',
+        {'dishid': 1, 'dishname': "煲仔饭", 'type': 'maincourse', 'price': 9.99,
+         'dish_picture': '/static/images/rango.jpg',
          'description': 'description煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭'},
-        {'dishid': 2, 'dishname': "铁锅炖大鹅", 'type': '主菜', 'price': 99.99,
+        {'dishid': 2, 'dishname': "铁锅炖大鹅", 'type': 'maincourse', 'price': 99.99,
          'dish_picture': '/static/images/rango.jpg',
          'description': 'description铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅'},
-        {'dishid': 3, 'dishname': "咖喱猪排饭", 'type': '主菜', 'price': 12.99,
+        {'dishid': 3, 'dishname': "咖喱猪排饭", 'type': 'maincourse', 'price': 12.99,
          'dish_picture': '/static/images/rango.jpg',
          'description': 'description咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭'},
-        {'dishid': 4, 'dishname': "刺身拼盘", 'type': '刺身', 'price': 19.99,
+        {'dishid': 4, 'dishname': "刺身拼盘", 'type': 'appetizer', 'price': 19.99,
          'dish_picture': '/static/images/rango.jpg',
          'description': 'description刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘'},
-        {'dishid': 5, 'dishname': "金枪鱼塔塔", 'type': '刺身', 'price': 3.67,
+        {'dishid': 5, 'dishname': "金枪鱼塔塔", 'type': 'sweetmeats', 'price': 3.67,
          'dish_picture': '/static/images/rango.jpg',
          'description': 'description金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔'},
+        {'dishid': 6, 'dishname': "长岛冰茶", 'type': 'drinks', 'price': 8.88,
+         'dish_picture': '/static/images/rango.jpg',
+         'description': "长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶"}
     ]
 
     return render(request, "menu.html", {"data": queryset})
@@ -163,7 +167,6 @@ def menu_detail(request):
         #     return render(request, 'login.html', {"error": "You need to be logged in to comment"})
         # else:
         #     return render(request, 'login.html', {'info_dicr': info_dict})
-
 
         dishid = request.POST.get('dishid')
         dishname = request.POST.get('dishname')
