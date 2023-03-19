@@ -7,7 +7,7 @@ from django.template.defaultfilters import slugify
 class Dish(models.Model):
     # NAME_MAX_LENGTH = 128
 
-    dishid = models.IntegerField(primary_key=True)
+    dishid = models.AutoField(primary_key=True)
     dishname = models.CharField(max_length=50, unique=True)
     type = models.CharField(max_length=30)
     price = models.IntegerField()
@@ -30,7 +30,7 @@ class User(models.Model):
     # TITLE_MAX_LENGTH = 128
     # URL_MAX_LENGTH = 200
 
-    userid = models.IntegerField(primary_key=True)
+    userid = models.AutoField(primary_key=True)
     username = models.CharField(max_length=10, unique=True)
     password = models.CharField(max_length=100)
     phone = models.IntegerField()
@@ -41,11 +41,11 @@ class User(models.Model):
 
 
 class Comment(models.Model):
-    commentid = models.IntegerField(primary_key=True)
+    commentid = models.AutoField(primary_key=True)
     dish = models.ForeignKey("Dish", on_delete=models.CASCADE)
     user = models.ForeignKey("User", on_delete=models.CASCADE)
-    content = models.CharField(max_length=500)
-    date = models.DateField(auto_now_add=False)
+    content = models.TextField(max_length=500)
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.commentid
