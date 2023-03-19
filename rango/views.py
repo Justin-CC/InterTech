@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse
+from rango import models
 
 
 def index(request):
@@ -92,31 +93,111 @@ def login(request):
     else:
 
         # 去请求中获取数据，再进行校验
-        username = request.POST.get('user')
-        password = request.POST.get('pwd')
+        user = request.POST.get('user')
+        pwd = request.POST.get('pwd')
 
         # 去数据库中校验，用户名和密码的合法性
 
-        # 成功，跳转到index http://127.0.0.1:8000/index/    /index/
-        # return redirect('/index')
+        user_object = models.User.objects.filter(username=user, password=pwd).first()
+
+        # 成功，跳转到index
+        if user_object:
+            request.session['info'] = {"id": user_object.userid, "name": user_object.username}
+            return redirect('index')
 
         # 不成功，再次让用户看到login页面 -> 用户名或密码错误
         # return request('/login.html', {"error": "用户名或密码错误"})
 
-        if username == 'root' and password == '123':
-            return redirect('index')
         else:
             return render(request, 'login.html', {"error": "The user name or password is incorrect"})
 
+
 def register(request):
-    return render(request, "register.html")
+    if request.method == "GET":
+        return render(request, "register.html")
+    else:
+        username = request.POST.get('register_username')
+        phone_number = request.POST.get('register_phone_number')
+        email = request.POST.get('register_email')
+        pwd = request.POST.get('register_password')
+        pwd_confirm = request.POST.get('register_confirm_password')
+
+        if pwd != pwd_confirm:
+            return render(request, 'register.html', {"error": "The password entered twice does not match"})
+
+        else:
+            # 在这个else里，把这些东西存到用户数据库里，新建一个用户，密码存pwd, 但我不知道那个id怎么办，我想让他自动生成且不重复。研究一下
+            return render(request, 'login.html')
+
+
 def menu(request):
-    return render(request, "menu.html")
+    # 这里要拿到全部的dish信息
+    queryset = [
+        {'dishid': 1, 'dishname': "煲仔饭", 'type': '主菜', 'price': 9.99, 'dish_picture': '/static/images/rango.jpg',
+         'description': 'description煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭'},
+        {'dishid': 2, 'dishname': "铁锅炖大鹅", 'type': '主菜', 'price': 99.99,
+         'dish_picture': '/static/images/rango.jpg',
+         'description': 'description铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅'},
+        {'dishid': 3, 'dishname': "咖喱猪排饭", 'type': '主菜', 'price': 12.99,
+         'dish_picture': '/static/images/rango.jpg',
+         'description': 'description咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭'},
+        {'dishid': 4, 'dishname': "刺身拼盘", 'type': '刺身', 'price': 19.99,
+         'dish_picture': '/static/images/rango.jpg',
+         'description': 'description刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘'},
+        {'dishid': 5, 'dishname': "金枪鱼塔塔", 'type': '刺身', 'price': 3.67,
+         'dish_picture': '/static/images/rango.jpg',
+         'description': 'description金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔'},
+    ]
+
+    return render(request, "menu.html", {"data": queryset})
+
+
 def menu_detail(request):
-    return render(request, "menu_detail.html")
+    if request.method == "GET":
+        return render(request, "index.html")
+
+    else:
+        # 判断用户是否已登陆
+        # info_dict = request.session.get("info")
+        # if not info_dict:
+        #     return render(request, 'login.html', {"error": "You need to be logged in to comment"})
+        # else:
+        #     return render(request, 'login.html', {'info_dicr': info_dict})
+
+
+        dishid = request.POST.get('dishid')
+        dishname = request.POST.get('dishname')
+        type = request.POST.get('type')
+        price = request.POST.get('price')
+        description = request.POST.get('description')
+        dish_picture = request.POST.get('dish_picture')
+
+        data = {"dishid": dishid, "dishname": dishname, "type": type, "price": price, "description": description,
+                "dish_picture": dish_picture, }
+
+        # 根据dishid匹配到dish所对应的comment，里面应该有对这个菜品进行评价的用户名id（主键），用户名，用户的评论
+        comment = [{'dishid': 1, 'userid': 1, 'username': '用户1', 'user_picture': '/static/images/rango.jpg',
+                    'comment': 'commentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcomment'},
+                   {'dishid': 1, 'userid': 2, 'username': '用户2', 'user_picture': '/static/images/rango.jpg',
+                    'comment': 'commentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcomment'},
+                   {'dishid': 1, 'userid': 3, 'username': '用户3', 'user_picture': '/static/images/rango.jpg',
+                    'comment': 'commentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcomment'},
+                   {'dishid': 1, 'userid': 4, 'username': '用户4', 'user_picture': '/static/images/rango.jpg',
+                    'comment': 'commentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcomment'},
+                   {'dishid': 1, 'userid': 5, 'username': '用户5', 'user_picture': '/static/images/rango.jpg',
+                    'comment': 'commentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcomment'},
+                   {'dishid': 1, 'userid': 6, 'username': '用户6', 'user_picture': '/static/images/rango.jpg',
+                    'comment': 'commentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcomment'}, ]
+        return render(request, 'menu_detail.html', {"data": data, "comment": comment})
+
+
 def aboutus(request):
     return render(request, "aboutus.html")
+
+
 def contactus(request):
     return render(request, "contactus.html")
+
+
 def faqs(request):
     return render(request, "faqs.html")

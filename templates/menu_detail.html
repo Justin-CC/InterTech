@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in-Register</title>
+    <title>Menu_detail</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <style>
@@ -76,7 +76,7 @@
                 <ul class="nav nav-tabs flex-column">
                     <div>
                         <!-- dish picture -->
-                        <img src="about-us-picture.jpg" alt="" style="height: 250px; width: 250px;">
+                        <img src={{ data.dish_picture }} alt="" style="height: 250px; width: 250px;">
                     </div>
 
                 </ul>
@@ -89,24 +89,23 @@
                                 <!-- dish name -->
                                 <h3
                                         style="text-align: left; color: rgb(74, 77, 78); font-family: Tempus Sans ITC; font-size: 28px; text-shadow: 3px 3px 3px darkgray;">
-                                    KHAO SAWY</h3>
+                                    {{ data.dishname }}</h3>
                                 <!-- dish id -->
                                 <h3
                                         style="text-align: left; color: rgb(74, 77, 78); font-family: Tempus Sans ITC; font-size: 28px; text-shadow: 3px 3px 3px darkgray;">
-                                    01</h3>
+                                    {{ data.dishid }}</h3>
                                 <!-- dish category -->
                                 <h3
                                         style="text-align: left; color: rgb(243, 173, 42); font-family: Tempus Sans ITC; font-size: 28px; text-shadow: 3px 3px 3px darkgray;">
-                                    Specialty</h3>
+                                    {{ data.type }}</h3>
                                 <!-- dish price -->
                                 <h3
                                         style="text-align: left; color: rgb(74, 77, 78); font-family: Tempus Sans ITC; font-size: 20px;">
-                                    ￡9.95</h3>
+                                    ￡{{ data.price }}</h3>
                                 <!-- dish description -->
                                 <h3
                                         style="text-align: left; color: rgb(74, 77, 78); font-family: Tempus Sans ITC; font-size: 18px;">
-                                    crispy fried egg noodles w. seafood/chicken/beef/tofu, massaman curry broth,
-                                    ajard sauce</h3>
+                                    {{ data.description }}</h3>
                             </div>
                         </div>
                     </div>
@@ -130,117 +129,23 @@
                 <form class="form-horizontal" method="get" action="">
                     <div class="pre-scrollable">
                         <ul class="media-list" style="list-style-type: none; margin-top: 30px;">
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
-                                             class="media-object">
-                                    </a>
-                                    <!-- Username -->
-                                    <h2>Username</h2>
-                                </div>
-                                <div class="media-body">
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis ad inventore cum
-                                        porro velit. Cumque, tenetur adipisci voluptatum obcaecati saepe quasi a
-                                        voluptate dolorem totam eius, neque cupiditate porro nostrum.</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
-                                             class="media-object">
-                                    </a>
-                                    <!-- Username -->
-                                    <h2 style="font-size: 10px; margin-top: 2px; font-family: Tempus Sans ITC;">
-                                        Username</h2>
-                                </div>
-                                <div class="media-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, quod odio
-                                        dicta tenetur commodi nemo corporis unde, alias aspernatur adipisci ea molestias
-                                        dolor delectus, architecto natus perferendis ullam amet non.</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
-                                             class="media-object">
-                                    </a>
-                                    <!-- Username -->
-                                    <h2 style="font-size: 10px; margin-top: 2px; font-family: Tempus Sans ITC;">
-                                        Username</h2>
-                                </div>
-                                <div class="media-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, quod odio
-                                        dicta tenetur commodi nemo corporis unde, alias aspernatur adipisci ea molestias
-                                        dolor delectus, architecto natus perferendis ullam amet non.</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
-                                             class="media-object">
-                                    </a>
-                                    <!-- Username -->
-                                    <h2 style="font-size: 10px; margin-top: 2px; font-family: Tempus Sans ITC;">
-                                        Username</h2>
-                                </div>
-                                <div class="media-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, quod odio
-                                        dicta tenetur commodi nemo corporis unde, alias aspernatur adipisci ea molestias
-                                        dolor delectus, architecto natus perferendis ullam amet non.</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
-                                             class="media-object">
-                                    </a>
-                                    <!-- Username -->
-                                    <h2 style="font-size: 10px; margin-top: 2px; font-family: Tempus Sans ITC;">
-                                        Username</h2>
-                                </div>
-                                <div class="media-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, quod odio
-                                        dicta tenetur commodi nemo corporis unde, alias aspernatur adipisci ea molestias
-                                        dolor delectus, architecto natus perferendis ullam amet non.</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
-                                             class="media-object">
-                                    </a>
-                                    <!-- Username -->
-                                    <h2 style="font-size: 10px; margin-top: 2px; font-family: Tempus Sans ITC;">
-                                        Username</h2>
-                                </div>
-                                <div class="media-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, quod odio
-                                        dicta tenetur commodi nemo corporis unde, alias aspernatur adipisci ea molestias
-                                        dolor delectus, architecto natus perferendis ullam amet non.</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img src="about-us-picture.jpg" style="height: 50px; width: 50px;"
-                                             class="media-object">
-                                    </a>
-                                    <!-- Username -->
-                                    <h2 style="font-size: 10px; margin-top: 2px; font-family: Tempus Sans ITC;">
-                                        Username</h2>
-                                </div>
-                                <div class="media-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, quod odio
-                                        dicta tenetur commodi nemo corporis unde, alias aspernatur adipisci ea molestias
-                                        dolor delectus, architecto natus perferendis ullam amet non.</p>
-                                </div>
-                            </li>
+
+                            {% for row in comment %}
+                                <li class="media">
+                                    <div class="media-left">
+{#                                        <a href="#">#}
+{#                                            <img src="{{ row.user_picture }}" style="height: 50px; width: 50px;"#}
+{#                                                 class="media-object">#}
+{#                                        </a>#}
+                                        <!-- Username -->
+                                        <h2>{{ row.username }}</h2>
+                                    </div>
+                                    <div class="media-body">
+                                        <p>{{ row.comment }}</p>
+                                    </div>
+                                </li>
+                            {% endfor %}
+
                         </ul>
                     </div>
                 </form>
@@ -259,6 +164,7 @@
                                       style="margin: 30px 0 10px 0;"></textarea>
                         <input type="submit" value="Submit" class="btn btn-success btn-comment"
                                style="margin-top: 5px; ;">
+                    </div>
                 </form>
             </div>
         </div>

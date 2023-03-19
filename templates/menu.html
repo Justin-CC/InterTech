@@ -157,64 +157,26 @@
 
         <div class="row menu-container">
 
-            <div class="col-lg-6 menu-item filter-starters">
-                <div class="menu-content">
-                    <a href="#">Breaded King Prawns</a><span>￡4.95</span>
+            {% for row in data %}
+                <div class="col-lg-6 menu-item filter-starters">
+                    <div class="menu-content">
+                        <form id={{ row.dishid }} method="post" action="/menu_detail/">
+                            <input type="hidden" name="dishid" value={{ row.dishid }}/>
+                            <input type="hidden" name="dishname" value={{ row.dishname }}/>
+                            <input type="hidden" name="type" value={{ row.type }}/>
+                            <input type="hidden" name="price" value={{ row.price }}/>
+                            <input type="hidden" name="description" value={{ row.description }}/>
+                            <input type="hidden" name="dish_picture" value={{ row.dish_picture }}/>
+
+                            <a onclick="document.getElementById({{ row.dishid }}).submit();">{{ row.dishname }}</a>
+
+{#                            <a onclick="sendPost_menu_detail('{{ row.dishid }}', '{{ row.dishname }}', '{{ row.type }}', '{{ row.price }}',  '{{ row.description }}')">{{ row.dishname }}</a>#}
+
+                            <span>￡{{ row.price }}</span>
+                        </form>
+                    </div>
                 </div>
-            </div>
-
-            <div class="col-lg-6 menu-item filter-specialty">
-                <div class="menu-content">
-                    <a href="#">Khao Sawy</a><span>￡9.95</span>
-                </div>
-            </div>
-
-            <div class="col-lg-6 menu-item filter-starters">
-                <div class="menu-content">
-                    <a href="#">Bruschetta Pomodoro</a><span>￡4.95</span>
-                </div>
-            </div>
-
-            <div class="col-lg-6 menu-item filter-salads">
-                <div class="menu-content">
-                    <a href="#">NUA TOM TING THAI</a><span>￡8.00</span>
-                </div>
-
-            </div>
-
-            <div class="col-lg-6 menu-item filter-specialty">
-                <div class="menu-content">
-                    <a href="#">KHAO MOO DAENG</a><span>￡9.95</span>
-                </div>
-
-            </div>
-
-            <div class="col-lg-6 menu-item filter-starters">
-                <div class="menu-content">
-                    <a href="#">Mozzarella Fritter</a><span>￡5.20</span>
-                </div>
-
-            </div>
-            <div class="col-lg-6 menu-item filter-salads">
-                <div class="menu-content">
-                    <a href="#">TOM KHA GAI</a><span>￡8.95</span>
-                </div>
-
-            </div>
-
-            <div class="col-lg-6 menu-item filter-salads">
-                <div class="menu-content">
-                    <a href="#">TOM YAM</a><span>￡9.95</span>
-                </div>
-
-            </div>
-
-            <div class="col-lg-6 menu-item filter-specialty">
-                <div class="menu-content">
-                    <a href="#">KHAO MUN GAI TOD</a><span>￡10.95</span>
-                </div>
-
-            </div>
+            {% endfor %}
 
         </div>
 
