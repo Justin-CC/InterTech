@@ -5,6 +5,38 @@
 </head>
 <body>
 <h1>Welcome to Restaurant</h1>
+
+<nav class="navbar navbar-default" role="navigation"
+     style="font-family: Tempus Sans ITC; font-size: 20px; font-weight: bold;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p style="font-size: 25px; color: rgb(6, 107, 141); text-shadow: 3px 3px 3px darkgray;">Delicious</p>
+            <!-- <a class="navbar-brand" href="#">Delicious</a> -->
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/menu">Menu</a></li>
+                <li><a href="/aboutus">About Us</a></li>
+                <li><a href="/contactus">Contact Us</a></li>
+                <li><a href="/faqs">FAQs</a></li>
+            </ul>
+            {% if info_dict == null %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/login">Log in</a></li>
+                    <li><a href="/register">Register</a></li>
+                </ul>
+            {% endif %}
+            {% if info_dict != null %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a>Welcome {{ info_dict.name }}</a></li>
+                    <li><a href="/logout">logout</a></li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
 <p>Please select an option:</p>
 <button onclick="location.href='login'">login</button>
 <button onclick="location.href='register'">register</button>

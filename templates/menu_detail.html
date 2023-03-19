@@ -54,10 +54,18 @@
                         <li><a href="/contactus">Contact Us</a></li>
                         <li><a href="/faqs">FAQs</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/login">Log in</a></li>
-                        <li><a href="/register">Register</a></li>
-                    </ul>
+                    {% if info_dict == null %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/login">Log in</a></li>
+                            <li><a href="/register">Register</a></li>
+                        </ul>
+                    {% endif %}
+                    {% if info_dict != null %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a>Welcome {{ info_dict.name }}</a></li>
+                            <li><a href="/logout">logout</a></li>
+                        </ul>
+                    {% endif %}
                 </div>
             </div>
         </nav>
@@ -133,10 +141,10 @@
                             {% for row in comment %}
                                 <li class="media">
                                     <div class="media-left">
-{#                                        <a href="#">#}
-{#                                            <img src="{{ row.user_picture }}" style="height: 50px; width: 50px;"#}
-{#                                                 class="media-object">#}
-{#                                        </a>#}
+                                        {#                                        <a href="#">#}
+                                        {#                                            <img src="{{ row.user_picture }}" style="height: 50px; width: 50px;"#}
+                                        {#                                                 class="media-object">#}
+                                        {#                                        </a>#}
                                         <!-- Username -->
                                         <h2>{{ row.username }}</h2>
                                     </div>

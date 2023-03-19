@@ -33,10 +33,18 @@
                     <li><a href="/contactus">Contact Us</a></li>
                     <li><a href="/faqs">FAQs</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/login">Log in</a></li>
-                    <li><a href="/register">Register</a></li>
-                </ul>
+                {% if info_dict == null %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/login">Log in</a></li>
+                        <li><a href="/register">Register</a></li>
+                    </ul>
+                {% endif %}
+                {% if info_dict != null %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a>Welcome {{ info_dict.name }}</a></li>
+                        <li><a href="/logout">logout</a></li>
+                    </ul>
+                {% endif %}
             </div>
         </div>
     </nav>
@@ -45,7 +53,8 @@
             About Us</h3>
     </div>
     <div id="about-us">
-        <h4 style="text-align: center; font-size: 20px; color: rgb(56, 107, 141); font-family: MV Boli;">想点文本编上，写死就行</h4>
+        <h4 style="text-align: center; font-size: 20px; color: rgb(56, 107, 141); font-family: MV Boli;">
+            想点文本编上，写死就行</h4>
     </div>
     <div class="row">
         <div class="gallery-item" style="float: left; margin-left: 10px;">
