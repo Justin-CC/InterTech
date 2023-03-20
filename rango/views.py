@@ -146,10 +146,12 @@ def register(request):
         elif user_object:
             return render(request, 'register.html', {"error": "The username already exists"})
         else:
-            # 在这个else里，把这些东西存到用户数据库里，新建一个用户，密码存pwd, 但我不知道那个id怎么办，我想让他自动生成且不重复。研究一下
+            # 在这个else里，把这些东西存到用户数据库里，新建一个用户，密码存pwd。
             user = User(username=username, password=pwd, phone=phone_number, email=email)
-            user.save
+
+            user.save()
             return render(request, 'login.index', {"reminder": "Registered successfully！"})
+
 
 
 def menu(request):

@@ -49,3 +49,20 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.commentid
+
+
+class Contact(models.Model):
+    # TITLE_MAX_LENGTH = 128
+    # URL_MAX_LENGTH = 200
+
+    contactid = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
+    title = models.CharField(max_length=20)
+    content = models.TextField(max_length=1000)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.name
+
+
+
