@@ -1,4 +1,3 @@
-
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -117,7 +116,11 @@ def login(request):
         # return request('/login.html', {"error": "用户名或密码错误"})
 
         else:
-            return render(request, 'login.html', {"error": "The user name or password is incorrect"})
+            error = "The user name or password is incorrect"
+            comment = request.POST.get("comment")
+            if comment:
+                error = comment
+            return render(request, 'login.html', {"error": error})
 
 
 def logout(request):
@@ -146,33 +149,31 @@ def register(request):
         elif user_object:
             return render(request, 'register.html', {"error": "The username already exists"})
         else:
-            # 在这个else里，把这些东西存到用户数据库里，新建一个用户，密码存pwd。
             user = User(username=username, password=pwd, phone=phone_number, email=email)
 
             user.save()
-            return render(request, 'login.index', {"reminder": "Registered successfully！"})
-
+            return render(request, 'login.html', {"error": "Registered successfully！"})
 
 
 def menu(request):
     # 这里要拿到全部的dish信息
     queryset = [
-        {'dishid': 1, 'dishname': "煲仔饭", 'type': 'maincourse', 'price': 9.99,
+        {'dishid': 1, 'dishname': "煲仔饭", 'type': 'RICE_&_NOODLE', 'price': 9.99,
          'dish_picture': '/static/images/rango.jpg',
          'description': 'description煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭煲仔饭'},
-        {'dishid': 2, 'dishname': "铁锅炖大鹅", 'type': 'maincourse', 'price': 99.99,
+        {'dishid': 2, 'dishname': "铁锅炖大鹅", 'type': 'SOUP_BOWL', 'price': 99.99,
          'dish_picture': '/static/images/rango.jpg',
          'description': 'description铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅铁锅炖大鹅'},
-        {'dishid': 3, 'dishname': "咖喱猪排饭", 'type': 'maincourse', 'price': 12.99,
+        {'dishid': 3, 'dishname': "咖喱猪排饭", 'type': 'RICE_&_NOODLE', 'price': 12.99,
          'dish_picture': '/static/images/rango.jpg',
          'description': 'description咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭咖喱猪排饭'},
-        {'dishid': 4, 'dishname': "刺身拼盘", 'type': 'appetizer', 'price': 19.99,
+        {'dishid': 4, 'dishname': "刺身拼盘", 'type': 'SOUP_BOWL', 'price': 19.99,
          'dish_picture': '/static/images/rango.jpg',
          'description': 'description刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘刺身拼盘'},
-        {'dishid': 5, 'dishname': "金枪鱼塔塔", 'type': 'sweetmeats', 'price': 3.67,
+        {'dishid': 5, 'dishname': "金枪鱼塔塔", 'type': 'STARTERS', 'price': 3.67,
          'dish_picture': '/static/images/rango.jpg',
          'description': 'description金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔金枪鱼塔塔'},
-        {'dishid': 6, 'dishname': "长岛冰茶", 'type': 'drinks', 'price': 8.88,
+        {'dishid': 6, 'dishname': "长岛冰茶", 'type': 'BEERS_&_SOFT_DRINKS', 'price': 8.88,
          'dish_picture': '/static/images/rango.jpg',
          'description': "长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶"}
     ]
@@ -190,14 +191,14 @@ def menu_detail(request):
         # 判断用户是否已登陆
         info_dict = request.session.get("info")
 
-        if not info_dict:
-            return render(request, 'login.html', {"error": "You need to be logged in to comment"})
+        # if not info_dict:
+        #     return render(request, 'login.html', {"error": "You need to be logged in to comment"})
 
-        dishid = request.POST.get('dishid')
-        dishname = request.POST.get('dishname')
-        type = request.POST.get('type')
-        price = request.POST.get('price')
-        description = request.POST.get('description')
+        dishid = request.POST.get('dishid').replace('/', '')
+        dishname = request.POST.get('dishname').replace('/', '')
+        type = request.POST.get('type').replace('/', '')
+        price = request.POST.get('price').replace('/', '')
+        description = request.POST.get('description').replace('/', '')
         dish_picture = request.POST.get('dish_picture')
 
         data = {"dishid": dishid, "dishname": dishname, "type": type, "price": price, "description": description,
@@ -216,7 +217,23 @@ def menu_detail(request):
                     'comment': 'commentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcomment'},
                    {'dishid': 1, 'userid': 6, 'username': '用户6', 'user_picture': '/static/images/rango.jpg',
                     'comment': 'commentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcomment'}, ]
-        return render(request, 'menu_detail.html', {"data": data, "comment": comment, 'info_dict': info_dict})
+
+        reminder = ""
+        text = request.POST.get('text')
+        if text is not None and text.strip():
+            reminder = "Thank you for your comment!"
+            print(text)
+            print(dishid)
+            print(info_dict['id'])
+            # print(info_dict['name'])
+
+            # 在这里把text存入comment数据库,content里存text，dish_id里存dishid，user_id里存info_dict['id']，就都是我上面print里面的，测过了没问题
+
+        elif text is not None and text.strip() == "":
+            reminder = "Please enter the comment"
+
+        return render(request, 'menu_detail.html',
+                      {"data": data, "comment": comment, 'info_dict': info_dict, 'reminder': reminder})
 
 
 def aboutus(request):
@@ -235,11 +252,12 @@ def contactus(request):
         title = request.POST.get('your_title')
         content = request.POST.get('your_content')
 
-        # 把这些存到一个新的表里去，名字随便什么contact
-        contactus = Contactus(name=name, title=title, content=content, email=email)
-        contactus.save()
-
-        return render(request, "contactus.html", {'info_dict': info_dict, "reminder": "Submit success！"})
+        if content is not None and content.strip():
+            contactus = Contactus(name=name, title=title, content=content, email=email)
+            contactus.save()
+            return render(request, "contactus.html", {'info_dict': info_dict, "reminder": "Submit success！"})
+        else:
+            return render(request, "contactus.html", {'info_dict': info_dict, "reminder": "Please enter the comment"})
 
 
 def faqs(request):
