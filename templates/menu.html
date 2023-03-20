@@ -156,10 +156,10 @@
             <div class="col-lg-12 d-flex justify-content-center">
                 <ul id="menu-flters" style="font-family: Tempus Sans ITC; font-size: 18px; font-weight: bolder; ">
                     <li data-filter="*" class="filter-active">Show All</li>
-                    <li data-filter=".filter-maincourse">main course</li>
-                    <li data-filter=".filter-appetizer">appetizer</li>
-                    <li data-filter=".filter-sweetmeats">sweetmeats</li>
-                    <li data-filter=".filter-drinks">drinks</li>
+                    <li data-filter=".filter-RICE_&_NOODLE">RICE & NOODLE</li>
+                    <li data-filter=".filter-SOUP_BOWL">SOUP BOWL</li>
+                    <li data-filter=".filter-STARTERS">STARTERS</li>
+                    <li data-filter=".filter-BEERS_&_SOFT_DRINKS">BEERS & SOFT DRINKS</li>
                 </ul>
             </div>
         </div>
@@ -167,8 +167,8 @@
         <div class="row menu-container">
 
             {% for row in data %}
-                {% if row.type == "maincourse" %}
-                    <div class="col-lg-6 menu-item filter-maincourse">
+                {% if row.type == "RICE_&_NOODLE" %}
+                    <div class="col-lg-6 menu-item filter-RICE_&_NOODLE">
                         <div class="menu-content">
                             <form id={{ row.dishid }} method="post" action="/menu_detail/">
                                 <input type="hidden" name="dishid" value={{ row.dishid }}/>
@@ -190,8 +190,8 @@
             {% endfor %}
 
             {% for row in data %}
-                {% if row.type == "appetizer" %}
-                    <div class="col-lg-6 menu-item filter-appetizer">
+                {% if row.type == "SOUP_BOWL" %}
+                    <div class="col-lg-6 menu-item filter-SOUP_BOWL">
                         <div class="menu-content">
                             <form id={{ row.dishid }} method="post" action="/menu_detail/">
                                 <input type="hidden" name="dishid" value={{ row.dishid }}/>
@@ -213,8 +213,8 @@
             {% endfor %}
 
             {% for row in data %}
-                {% if row.type == "sweetmeats" %}
-                    <div class="col-lg-6 menu-item filter-sweetmeats">
+                {% if row.type == "STARTERS" %}
+                    <div class="col-lg-6 menu-item filter-STARTERS">
                         <div class="menu-content">
                             <form id={{ row.dishid }} method="post" action="/menu_detail/">
                                 <input type="hidden" name="dishid" value={{ row.dishid }}/>
@@ -236,8 +236,8 @@
             {% endfor %}
 
             {% for row in data %}
-                {% if row.type == "drinks" %}
-                    <div class="col-lg-6 menu-item filter-drinks">
+                {% if row.type == "BEERS_&_SOFT_DRINKS" %}
+                    <div class="col-lg-6 menu-item filter-BEERS_&_SOFT_DRINKS">
                         <div class="menu-content">
                             <form id={{ row.dishid }} method="post" action="/menu_detail/">
                                 <input type="hidden" name="dishid" value={{ row.dishid }}/>
