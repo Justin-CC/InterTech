@@ -149,7 +149,7 @@ def register(request):
             # 在这个else里，把这些东西存到用户数据库里，新建一个用户，密码存pwd, 但我不知道那个id怎么办，我想让他自动生成且不重复。研究一下
             user = User(username=username, password=pwd, phone=phone_number, email=email)
             user.save
-            return render(request, 'login.index')
+            return render(request, 'login.index', {"reminder": "Registered successfully！"})
 
 
 def menu(request):
@@ -224,7 +224,18 @@ def aboutus(request):
 
 def contactus(request):
     info_dict = request.session.get("info")
-    return render(request, "contactus.html", {'info_dict': info_dict})
+    if request.method == "GET":
+        return render(request, "contactus.html", {'info_dict': info_dict})
+
+    else:
+        name = request.POST.get('your_name')
+        email = request.POST.get('your_email')
+        title = request.POST.get('your_title')
+        content = request.POST.get('your_content')
+
+        # 把这些存到一个新的表里去，名字随便什么contact
+
+        return render(request, "contactus.html", {'info_dict': info_dict, "reminder": "Submit success！"})
 
 
 def faqs(request):
