@@ -55,10 +55,18 @@
                             <li class="active"><a href="/contactus">Contact Us</a></li>
                             <li><a href="/faqs">FAQs</a></li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/login">Log in</a></li>
-                            <li><a href="/register">Register</a></li>
-                        </ul>
+                        {% if info_dict == null %}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="/login">Log in</a></li>
+                                <li><a href="/register">Register</a></li>
+                            </ul>
+                        {% endif %}
+                        {% if info_dict != null %}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a>Welcome {{ info_dict.name }}</a></li>
+                                <li><a href="/logout">logout</a></li>
+                            </ul>
+                        {% endif %}
                     </div>
                 </div>
             </nav>
@@ -112,9 +120,9 @@
             <form class="form-horizontal" method="post" action="">
                 <!-- <div class="row"> -->
                 <div class="col-md-6 form-group">
-                    <input style="font-family: Ink Free; font-weight: bold;" type="text" name="your_username"
+                    <input style="font-family: Ink Free; font-weight: bold;" type="text" name="your_name"
                            class="form-control"
-                           placeholder="Please input your username" required="required">
+                           placeholder="Please input your name" required="required">
                 </div>
                 <div class="col-md-6 form-group_2">
                     <input style="font-family: Ink Free;font-weight: bold" type="email" name="your_email"

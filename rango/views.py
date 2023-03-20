@@ -1,3 +1,4 @@
+import null as null
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -5,8 +6,10 @@ from django.urls import reverse
 from rango import models
 from .models import User, Dish, Comment
 
+
 def index(request):
-    return render(request, "index.html")
+    info_dict = request.session.get("info")
+    return render(request, 'index.html', {'info_dict': info_dict})
 
 
 #     category_list = Category.objects.order_by('-likes')[:5]
@@ -89,7 +92,12 @@ def index(request):
 def login(request):
     # 判断到底是POST请求还是GET请求
     if request.method == "GET":
-        return render(request, 'login.html')
+        info_dict = request.session.get("info")
+        if info_dict is None:
+            return render(request, 'login.html', {'info_dict': info_dict})
+
+        return render(request, 'index.html', {'info_dict': info_dict})
+
     else:
 
         # 去请求中获取数据，再进行校验
@@ -112,9 +120,19 @@ def login(request):
             return render(request, 'login.html', {"error": "The user name or password is incorrect"})
 
 
+def logout(request):
+    request.session.clear()
+    return redirect('index')
+
+
 def register(request):
     if request.method == "GET":
-        return render(request, "register.html")
+        info_dict = request.session.get("info")
+        if info_dict is None:
+            return render(request, 'register.html', {'info_dict': info_dict})
+
+        return render(request, 'index.html', {'info_dict': info_dict})
+
     else:
         username = request.POST.get('register_username')
         phone_number = request.POST.get('register_phone_number')
@@ -130,8 +148,10 @@ def register(request):
         else:
             # 在这个else里，把这些东西存到用户数据库里，新建一个用户，密码存pwd。
             user = User(username=username, password=pwd, phone=phone_number, email=email)
+
             user.save()
-            return render(request, 'login.html')
+            return render(request, 'login.index', {"reminder": "Registered successfully！"})
+
 
 
 def menu(request):
@@ -157,20 +177,21 @@ def menu(request):
          'description': "长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶长岛冰茶"}
     ]
 
-    return render(request, "menu.html", {"data": queryset})
+    info_dict = request.session.get("info")
+    return render(request, "menu.html", {"data": queryset, 'info_dict': info_dict})
 
 
 def menu_detail(request):
     if request.method == "GET":
-        return render(request, "index.html")
+        info_dict = request.session.get("info")
+        return render(request, "index.html", {'info_dict': info_dict})
 
     else:
         # 判断用户是否已登陆
-        # info_dict = request.session.get("info")
-        # if not info_dict:
-        #     return render(request, 'login.html', {"error": "You need to be logged in to comment"})
-        # else:
-        #     return render(request, 'login.html', {'info_dicr': info_dict})
+        info_dict = request.session.get("info")
+
+        if not info_dict:
+            return render(request, 'login.html', {"error": "You need to be logged in to comment"})
 
         dishid = request.POST.get('dishid')
         dishname = request.POST.get('dishname')
@@ -195,16 +216,30 @@ def menu_detail(request):
                     'comment': 'commentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcomment'},
                    {'dishid': 1, 'userid': 6, 'username': '用户6', 'user_picture': '/static/images/rango.jpg',
                     'comment': 'commentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcommentcomment'}, ]
-        return render(request, 'menu_detail.html', {"data": data, "comment": comment})
+        return render(request, 'menu_detail.html', {"data": data, "comment": comment, 'info_dict': info_dict})
 
 
 def aboutus(request):
-    return render(request, "aboutus.html")
+    info_dict = request.session.get("info")
+    return render(request, "aboutus.html", {'info_dict': info_dict})
 
 
 def contactus(request):
-    return render(request, "contactus.html")
+    info_dict = request.session.get("info")
+    if request.method == "GET":
+        return render(request, "contactus.html", {'info_dict': info_dict})
+
+    else:
+        name = request.POST.get('your_name')
+        email = request.POST.get('your_email')
+        title = request.POST.get('your_title')
+        content = request.POST.get('your_content')
+
+        # 把这些存到一个新的表里去，名字随便什么contact
+
+        return render(request, "contactus.html", {'info_dict': info_dict, "reminder": "Submit success！"})
 
 
 def faqs(request):
-    return render(request, "faqs.html")
+    info_dict = request.session.get("info")
+    return render(request, "faqs.html", {'info_dict': info_dict})
