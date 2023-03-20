@@ -165,15 +165,41 @@
                             style="text-align: center; color: rgb(95, 184, 213); font-family: Tempus Sans ITC; font-size: 22px; text-shadow: 3px 3px 3px darkgray;">
                         Please don't forget to write down your evaluation of this dish!</h3>
                 </div>
-                <form class="form-horizontal" role="form" method="post" action="">
-                    <div class="form-group" style="text-align: center;">
-							<textarea class="form-control" rows="7"
+
+                {% if info_dict %}
+                    <form class="form-horizontal" role="form" method="post" action="">
+                        <div class="form-group" style="text-align: center;">
+                            <input type="hidden" name="dishid" value={{ data.dishid }}/>
+                            <input type="hidden" name="dishname" value={{ data.dishname }}/>
+                            <input type="hidden" name="type" value={{ data.type }}/>
+                            <input type="hidden" name="price" value={{ data.price }}/>
+                            <input type="hidden" name="description" value={{ data.description }}/>
+                            <input type="hidden" name="dish_picture" value={{ data.dish_picture }}/>
+                            <textarea class="form-control" rows="7" name="text"
+                                      placeholder="Please input your comment..."
+                                      required="required"
+                                      style="margin: 30px 0 10px 0;"></textarea>
+                            <input type="submit" value="Submit" class="btn btn-success btn-comment"
+                                   style="margin-top: 5px; ;">
+                            <span style="color: red;">{{ reminder }}</span>
+                        </div>
+                    </form>
+                {% endif %}
+
+                {% if info_dict is None %}
+                    <form class="form-horizontal" role="form" method="post" action="/login/">
+                        <div class="form-group" style="text-align: center;">
+                            <input type="hidden" name="comment" value="You need to be logged in to comment"/>
+                            <textarea class="form-control" rows="7"
                                       placeholder="Please input your comment..."
                                       style="margin: 30px 0 10px 0;"></textarea>
-                        <input type="submit" value="Submit" class="btn btn-success btn-comment"
-                               style="margin-top: 5px; ;">
-                    </div>
-                </form>
+                            <input type="submit" value="Submit" class="btn btn-success btn-comment"
+                                   style="margin-top: 5px; ;">
+                        </div>
+                    </form>
+                {% endif %}
+
+
             </div>
         </div>
     </div>

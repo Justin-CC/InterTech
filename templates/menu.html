@@ -156,10 +156,10 @@
             <div class="col-lg-12 d-flex justify-content-center">
                 <ul id="menu-flters" style="font-family: Tempus Sans ITC; font-size: 18px; font-weight: bolder; ">
                     <li data-filter="*" class="filter-active">Show All</li>
-                    <li data-filter=".filter-RICE_&_NOODLE">RICE & NOODLE</li>
+                    <li data-filter=".filter-RICE_NOODLE">RICE & NOODLE</li>
                     <li data-filter=".filter-SOUP_BOWL">SOUP BOWL</li>
                     <li data-filter=".filter-STARTERS">STARTERS</li>
-                    <li data-filter=".filter-BEERS_&_SOFT_DRINKS">BEERS & SOFT DRINKS</li>
+                    <li data-filter=".filter-BEERS_SOFT_DRINKS">BEERS & SOFT DRINKS</li>
                 </ul>
             </div>
         </div>
@@ -168,7 +168,7 @@
 
             {% for row in data %}
                 {% if row.type == "RICE_&_NOODLE" %}
-                    <div class="col-lg-6 menu-item filter-RICE_&_NOODLE">
+                    <div class="col-lg-6 menu-item filter-RICE_NOODLE">
                         <div class="menu-content">
                             <form id={{ row.dishid }} method="post" action="/menu_detail/">
                                 <input type="hidden" name="dishid" value={{ row.dishid }}/>
@@ -237,7 +237,7 @@
 
             {% for row in data %}
                 {% if row.type == "BEERS_&_SOFT_DRINKS" %}
-                    <div class="col-lg-6 menu-item filter-BEERS_&_SOFT_DRINKS">
+                    <div class="col-lg-6 menu-item filter-BEERS_SOFT_DRINKS">
                         <div class="menu-content">
                             <form id={{ row.dishid }} method="post" action="/menu_detail/">
                                 <input type="hidden" name="dishid" value={{ row.dishid }}/>
