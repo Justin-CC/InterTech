@@ -1,6 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
-
+from django.template.defaultfilters import truncatechars
 
 # # Create your models here.
 # 
@@ -43,13 +43,16 @@ class User(models.Model):
 
 class Comment(models.Model):
     commentid = models.AutoField(primary_key=True)
-    dish = models.ForeignKey("Dish", on_delete=models.CASCADE)
-    user = models.ForeignKey("User", on_delete=models.CASCADE)
+    dish = models.ForeignKey("Dish", related_name="comments", on_delete=models.CASCADE)
+    user = models.ForeignKey("User", related_name="comments", on_delete=models.CASCADE)
     content = models.TextField(max_length=500)
-    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.commentid
+        return truncatechars(self.content, 30)
+
+    class Meta:
+        verbose_name = "Comment"
+        verbose_name_plural = "Comments"
 
 
 class Contactus(models.Model):
@@ -57,13 +60,24 @@ class Contactus(models.Model):
     # URL_MAX_LENGTH = 200
 
     contactid = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=40)
     title = models.CharField(max_length=20)
     content = models.TextField(max_length=1000)
     email = models.EmailField()
 
+
     def __str__(self):
         return self.name
+
+# class Test(models.Model):
+#     # TITLE_MAX_LENGTH = 128
+#     # URL_MAX_LENGTH = 200
+#
+#     name = models.CharField(max_length=40)
+#
+#
+#     def __str__(self):
+#         return self.name
 
 
 
