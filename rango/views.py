@@ -1,10 +1,10 @@
-import null as null
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse
 from rango import models
-from .models import User, Dish, Comment
+from .models import User, Dish, Comment, Contactus
 
 
 def index(request):
@@ -236,6 +236,8 @@ def contactus(request):
         content = request.POST.get('your_content')
 
         # 把这些存到一个新的表里去，名字随便什么contact
+        contactus = Contactus(name=name, title=title, content=content, email=email)
+        contactus.save()
 
         return render(request, "contactus.html", {'info_dict': info_dict, "reminder": "Submit success！"})
 

@@ -1,9 +1,27 @@
 import os
+import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 'restauraunt.settings')
 
-import django
 django.setup()
+from rango.models import Dish
+
+def populate():
+    data = [
+        {'dishname':'KHAO SAWY',
+         'type':'Rice & Noodle',
+         'price':'9.8',
+         'description':'A fragrant and creamy coconut curry noodle soup, popular in Northern Thailand. Served with tender meat, crunchy toppings and a squeeze of lime.'},
+    ]
+
+    for item in data:
+        obj = Dish(dishname=item['dishname'], type=item['type'], price=item['price'], decription=item['description'])
+        obj.save()
+
+
+
+# 'picture':'/static/images/KhaoSawy.jpg'
+
 # from rango.models import Category, Page
 # 
 # def populate():

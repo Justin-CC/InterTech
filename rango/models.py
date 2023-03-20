@@ -10,13 +10,14 @@ class Dish(models.Model):
     dishid = models.AutoField(primary_key=True)
     dishname = models.CharField(max_length=50, unique=True)
     type = models.CharField(max_length=30)
-    price = models.IntegerField()
+    price = models.DecimalField(max_digits=5, decimal_places=2)
     description = models.CharField(max_length=500)
     slug = models.SlugField(unique=True)
     picture = models.CharField(max_length=500)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
+        self.slug = slugify(self.dishname)
+        self.picture = '/static/images/' + slugify(self.dishname).upper() + '.jpg'
         super(Dish, self).save(*args, **kwargs)
 
     class Meta:
@@ -51,7 +52,7 @@ class Comment(models.Model):
         return self.commentid
 
 
-class Contact(models.Model):
+class Contactus(models.Model):
     # TITLE_MAX_LENGTH = 128
     # URL_MAX_LENGTH = 200
 

@@ -20,7 +20,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 admin.site.register(Dish, DishAdmin)
 admin.site.register(User, UserAdmin)
-admin.site.register(Comment)
+admin.site.register(Comment, CommentAdmin)
 
 # admin.site.register(Page, PageAdmin)
 
