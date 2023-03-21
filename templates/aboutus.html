@@ -5,73 +5,179 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About us</title>
+    <title>About Us</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <style>
-        .gallery-item {
-            /* margin-left: 250px; */
-            margin-top: 30px;
+        .why-us .box {
+            padding: 50px 30px;
+            box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all ease-in-out 0.3s;
+            height: 100%;
+        }
+
+        .why-us .box span {
+            display: block;
+            font-size: 28px;
+            font-weight: 700;
+            color: lightskyblue;
+            font-family: Ink Free;
+        }
+
+        .why-us .box h4 {
+            font-size: 24px;
+            font-weight: 600;
+            padding: 0;
+            margin: 20px 0;
+            color: rgb(13, 173, 226);
+            font-family: Ink Free;
+        }
+
+        .why-us .box p {
+            color: #5565a1;
+            font-size: 15px;
+            font-family: Ink Free;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+        }
+
+        .why-us .box:hover {
+            background: rgb(44, 167, 209);
+            padding: 30px 30px 70px 30px;
+            box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        .why-us .box:hover span,
+        .why-us .box:hover h4,
+        .why-us .box:hover p {
+            color: #fff;
         }
     </style>
 </head>
 
 <body>
 <div class="container">
-    <nav class="navbar navbar-default" role="navigation"
-         style="font-family: Tempus Sans ITC; font-size: 20px; font-weight: bold;">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <p style="font-size: 25px; color: rgb(6, 107, 141); text-shadow: 3px 3px 3px darkgray;">Delicious</p>
-                <!-- <a class="navbar-brand" href="#">Delicious</a> -->
-            </div>
-            <div>
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/menu">Menu</a></li>
-                    <li class="active"><a href="/aboutus">About Us</a></li>
-                    <li><a href="/contactus">Contact Us</a></li>
-                    <li><a href="/faqs">FAQs</a></li>
-                </ul>
-                {% if info_dict == null %}
+    <div class="row">
+        <nav class="navbar navbar-default" role="navigation"
+             style="font-family: Tempus Sans ITC; font-size: 20px; font-weight: bold;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <p style="font-size: 25px; color: rgb(6, 107, 141); text-shadow: 3px 3px 3px darkgray;">Dancing
+                        Taste Buds</p>
+                    <!-- <a class="navbar-brand" href="#">Delicious</a> -->
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/menu">Menu</a></li>
+                        <li class="active"><a href="/aboutus">About Us</a></li>
+                        <li><a href="/contactus">Contact Us</a></li>
+                        <li><a href="/faqs">FAQs</a></li>
+                    </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/login">Log in</a></li>
                         <li><a href="/register">Register</a></li>
                     </ul>
-                {% endif %}
-                {% if info_dict != null %}
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a>Welcome {{ info_dict.name }}</a></li>
-                        <li><a href="/logout">logout</a></li>
-                    </ul>
-                {% endif %}
+                </div>
             </div>
-        </div>
-    </nav>
-    <div id="about-us-title">
-        <h3 style="text-align: center; color: rgb(6, 107, 141); font-family: Tempus Sans ITC; font-size: 38px; text-shadow: 3px 3px 3px darkgray;">
-            About Us</h3>
-    </div>
-    <div id="about-us">
-        <h4 style="text-align: center; font-size: 20px; color: rgb(56, 107, 141); font-family: MV Boli;">
-            想点文本编上，写死就行</h4>
-    </div>
-    <div class="row">
-        <div class="gallery-item" style="float: left; margin-left: 10px;">
-            <img src="about-us-picture.jpg" alt="" class="img-fluid">
-        </div>
+        </nav>
+        <section id="about" class="about">
+            <div class="container-fluid">
 
-        <div class="gallery-item" style="float: right; margin-right: 10px;">
-            <img src="about-us-picture.jpg" alt="" class="img-fluid">
-        </div>
+                <div class="row">
+                    <div class="section-title">
+                        <h2 style="text-align: center; color: rgb(6, 107, 141); font-family: Tempus Sans ITC; font-size: 38px; text-shadow: 3px 3px 3px darkgray">
+                            <span>About</span> Us
+                        </h2>
+                        <p style="text-align: center; color: rgb(56, 107, 141); font-size: 20px; font-family: MV Boli;">
+                            Thank you for your contact, please submit the following form to help us solve your
+                            problem!</p>
+                    </div>
 
-        <div class="gallery-item" style="float: left; margin-left: 10px;">
-            <img src="about-us-picture.jpg" alt="" class="img-fluid">
-        </div>
-        <div class="gallery-item" style="float: right; margin-right: 10px;">
-            <img src="about-us-picture.jpg" alt="" class="img-fluid">
-        </div>
+                    <div class="col-lg-5">
+                        <img src="/static/images/restaurant-11.jpg" alt=""
+                             style="width: 100%; height: 100%; margin-top: 70px;">
+                    </div>
 
+                    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
+
+                        <div class="content">
+                            <h3
+                                    style="font-weight: bold; font-family: Tempus Sans ITC; font-size: 20px; color: rgb(11, 154, 201); text-shadow: 3px 3px 3px darkgray; margin-bottom: 70px;">
+                                Our restaurant is a popular casual restaurant that serves authentic Thai street
+                                cuisine in a relaxed and comfortable atmosphere. Our restaurant is located in the
+                                city center and is famous for its vibrant decor, friendly staff, and delicious food.
+                                The menu at this restaurant offers a wide variety of Thai dishes, including classic
+                                appetizers, noodles, and soup.</h3>
+                            <h3
+                                    style="font-weight: bold;  font-family: Tempus Sans ITC; font-size: 20px; color: rgb(8, 129, 169); text-shadow: 3px 3px 3px darkgray; margin-bottom: 70px">
+                                One of the unique features of our restaurant is that customers can watch chefs cook
+                                food in the open kitchen, increasing the dining experience. Our restaurant also
+                                offers a range of vegetarian and vegan options, making them a popular choice for
+                                those with dietary restrictions.</h3>
+                            <h3
+                                    style="font-weight: bold;  font-family: Tempus Sans ITC; font-size: 20px; color: black; text-shadow: 3px 3px 3px darkgray;">
+                                Our restaurant is often busy, so it is recommended to make a phone reservation in
+                                advance. Overall, this is a must go place for anyone looking for authentic Thai
+                                cuisine in an atmosphere of fun and enthusiasm.</h3>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <section id="why-us" class="why-us">
+            <div class="container">
+
+                <div class="section-title">
+                    <h3
+                            style="text-align: center; color:rgb(6, 107, 141); font-family: Tempus Sans ITC; font-size: 38px; text-shadow: 3px 3px 3px darkgray">
+                        Why choose <span style="font-weight: bold; color: rgb(96, 169, 189);">Our Restaurant</span>
+                    </h3>
+                    <p style="text-align: center; font-size: 20px; color: rgb(56, 107, 141); font-family: MV Boli;">
+                        Dancing Taste Buds offers you authentic Thai cuisine, prepared by experienced chefs using
+                        traditional cooking methods and ingredients. This can be a great option for anyone looking to
+                        enjoy the authentic flavors of Thai food.</p>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="box">
+                            <span>01</span>
+                            <h4> Variety of dishes </h4>
+                            <p>You will also have a wide variety of dishes to choose in Dancing Taste Buds, including
+                                vegetarian and vegan options. This can be a great option for groups with different
+                                dietary requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mt-4 mt-lg-0">
+                        <div class="box">
+                            <span>02</span>
+                            <h4> Casual atmosphere </h4>
+                            <p>In Dancing Taste Buds, you will experience an unforgettable dining feast, in a casual and
+                                relaxed atmosphere, which can be a great option for anyone looking to enjoy a laid-back
+                                dining experience.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mt-4 mt-lg-0">
+                        <div class="box">
+                            <span>03</span>
+                            <h4> Good location </h4>
+                            <p>We locate in the heart of Glasgow, which can be a great option for anyone looking for a
+                                convenient location to dine in.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
