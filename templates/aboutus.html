@@ -63,8 +63,8 @@
              style="font-family: Tempus Sans ITC; font-size: 20px; font-weight: bold;">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <p style="font-size: 25px; color: rgb(6, 107, 141); text-shadow: 3px 3px 3px darkgray;">Dancing
-                        Taste Buds</p>
+                    <p style="font-size: 25px; color: rgb(6, 107, 141); text-shadow: 3px 3px 3px darkgray;">
+                        Dancing Taste Buds</p>
                     <!-- <a class="navbar-brand" href="#">Delicious</a> -->
                 </div>
                 <div>
@@ -75,10 +75,18 @@
                         <li><a href="/contactus">Contact Us</a></li>
                         <li><a href="/faqs">FAQs</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/login">Log in</a></li>
-                        <li><a href="/register">Register</a></li>
-                    </ul>
+                    {% if info_dict == null %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/login">Log in</a></li>
+                            <li><a href="/register">Register</a></li>
+                        </ul>
+                    {% endif %}
+                    {% if info_dict != null %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a>Welcome {{ info_dict.name }}</a></li>
+                            <li><a href="/logout">logout</a></li>
+                        </ul>
+                    {% endif %}
                 </div>
             </div>
         </nav>
