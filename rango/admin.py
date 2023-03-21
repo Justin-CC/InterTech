@@ -1,5 +1,5 @@
 from django.contrib import admin
-from rango.models import Dish, User, Comment
+from rango.models import Dish, User, Comment, Receive
 
 
 #
@@ -18,11 +18,14 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('commentid','dish', 'user')
 
 
+class ReceiveAdmin(admin.ModelAdmin):
+    list_display = ('name', 'title', 'email')
+
 admin.site.register(Dish, DishAdmin)
 admin.site.register(User, UserAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Receive, ReceiveAdmin)
 
-# admin.site.register(Page, PageAdmin)
 
 
 # Register your models here.

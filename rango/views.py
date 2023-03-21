@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse
 from rango import models
-from .models import User, Dish, Comment, Contactus
+from .models import User, Dish, Comment, Receive
 
 
 def index(request):
@@ -173,8 +173,8 @@ def contactus(request):
         content = request.POST.get('your_content')
 
         if content is not None and content.strip():
-            contactus = Contactus(name=name, title=title, content=content, email=email)
-            contactus.save()
+            receiveMessage = Receive(name=name, title=title, content=content, email=email)
+            receiveMessage.save()
             return render(request, "contactus.html", {'info_dict': info_dict, "reminder": "Submit success！"})
         else:
             return render(request, "contactus.html", {'info_dict': info_dict, "reminder": "Please enter the comment"})

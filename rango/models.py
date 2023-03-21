@@ -55,29 +55,19 @@ class Comment(models.Model):
         verbose_name_plural = "Comments"
 
 
-class Contactus(models.Model):
-    # TITLE_MAX_LENGTH = 128
-    # URL_MAX_LENGTH = 200
 
-    contactid = models.AutoField(primary_key=True)
+class Receive(models.Model):
     name = models.CharField(max_length=40)
     title = models.CharField(max_length=20)
-    content = models.TextField(max_length=1000)
+    content = models.TextField(max_length=500)
     email = models.EmailField()
+
+    class Meta:
+        verbose_name = "Receive"
+        verbose_name_plural = "Receives"
 
 
     def __str__(self):
-        return self.name
-
-# class Test(models.Model):
-#     # TITLE_MAX_LENGTH = 128
-#     # URL_MAX_LENGTH = 200
-#
-#     name = models.CharField(max_length=40)
-#
-#
-#     def __str__(self):
-#         return self.name
-
+        return truncatechars(self.content, 30)
 
 
