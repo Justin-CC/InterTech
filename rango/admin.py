@@ -2,11 +2,6 @@ from django.contrib import admin
 from rango.models import Dish, User, Comment, Receive
 
 
-#
-# class PageAdmin(admin.ModelAdmin):
-#     list_display = ('title', 'category', 'url')
-#
-
 class UserAdmin(admin.ModelAdmin):
     list_display = ('userid','username', 'phone', 'email')
 
@@ -27,5 +22,3 @@ admin.site.register(Comment, CommentAdmin)
 admin.site.register(Receive, ReceiveAdmin)
 
 
-
-# Register your models here.

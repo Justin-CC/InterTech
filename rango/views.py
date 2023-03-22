@@ -1,9 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.shortcuts import redirect
-from django.urls import reverse
 from rango import models
 from .models import User, Dish, Comment, Receive
+
 
 
 def index(request):
@@ -79,7 +78,7 @@ def register(request):
 
 
 def menu(request):
-    # 这里要拿到全部的dish信息
+    # load all dish information through for loop
     queryset = []
     for dish in Dish.objects.all():
         queryset.append({
@@ -102,16 +101,11 @@ def menu_detail(request):
         return render(request, "index.html", {'info_dict': info_dict})
 
     else:
-        # 判断用户是否已登陆
+        # check whether user is login
         info_dict = request.session.get("info")
 
         dishid = request.POST.get('dishid').replace('/', '')
-        # dishname = request.POST.get('dishname').replace('/', '')
-        # type = request.POST.get('type').replace('/', '')
-        # price = request.POST.get('price').replace('/', '')
-        # description = request.POST.get('description').replace('/', '')
-        # dish_picture = request.POST.get('dish_picture')
-
+        # get the dish_data where dishid=dishid
         dish = Dish.objects.get(dishid=dishid)
         dishname = dish.dishname
         type = dish.type
@@ -129,9 +123,8 @@ def menu_detail(request):
         print(text)
         print(dishid)
         print(info_dict['id'])
-        # print(info_dict['name'])
 
-        # 在这里把text存入comment数据库,content里存text，dish_id里存dishid，user_id里存info_dict['id']，就都是我上面print里面的，测过了没问题
+        # save comment in database
         dish = Dish.objects.get(dishid=dishid)
         user = User.objects.get(userid=info_dict['id'])
         comment = Comment(dish=dish, user=user, content=text)
@@ -140,7 +133,7 @@ def menu_detail(request):
     elif text is not None and text.strip() == "":
         reminder = "Please enter the comment"
 
-    # 根据dishid匹配到dish所对应的comment，里面应该有对这个菜品进行评价的用户名id（主键），用户名，用户的评论
+    # find all the comments where match dishid in Comment database
     tempcomments = Comment.objects.filter(dish__dishid=dishid)
     comments = []
     for tempcomment in tempcomments:
