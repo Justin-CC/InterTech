@@ -1,6 +1,8 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.template.defaultfilters import truncatechars
+from django.core.validators import MinValueValidator
+from decimal import Decimal
 
 # # Create your models here.
 # 
@@ -10,7 +12,7 @@ class Dish(models.Model):
     dishid = models.AutoField(primary_key=True)
     dishname = models.CharField(max_length=50, unique=True)
     type = models.CharField(max_length=30)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    price = models.DecimalField(max_digits=5, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
     description = models.CharField(max_length=500)
     slug = models.SlugField(unique=True)
     picture = models.CharField(max_length=500)
@@ -28,8 +30,6 @@ class Dish(models.Model):
 
 
 class User(models.Model):
-    # TITLE_MAX_LENGTH = 128
-    # URL_MAX_LENGTH = 200
 
     userid = models.AutoField(primary_key=True)
     username = models.CharField(max_length=10, unique=True)

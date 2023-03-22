@@ -24,14 +24,14 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('rango/', include('rango.urls')),
     path('admin/', admin.site.urls),
-    path("login/", views.login),
-    path("logout/", views.logout),
-    path("register/", views.register),
-    path("aboutus/", views.aboutus),
-    path("contactus/", views.contactus),
-    path("faqs/", views.faqs),
-    path("menu/", views.menu),
-    path("menu_detail/", views.menu_detail),
+    path("login/", views.login, name='login'),
+    path("logout/", views.logout, name='logout'),
+    path("register/", views.register, name='register'),
+    path("aboutus/", views.aboutus, name='aboutus'),
+    path("contactus/", views.contactus, name='contactus'),
+    path("faqs/", views.faqs, name='faqs'),
+    path("menu/", views.menu, name='menu'),
+    path("menu_detail/", views.menu_detail, name='menu_detail'),
 ]
 
 # ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
