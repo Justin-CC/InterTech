@@ -9,7 +9,6 @@
     <!-- integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kD4Ck5BdPtF+to8xMp9Mvc/b" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-
     <link type="text/css" rel="stylesheet" href="/static/style.css">
     <title>Restaurant Menu</title>
 </head>
@@ -69,93 +68,81 @@
 
             {% for row in data %}
                 {% if row.type == "RICE_&_NOODLE" %}
-                    <div class="col-lg-6 menu-item filter-RICE_NOODLE">
-                        <div class="menu-content">
-                            <form id={{ row.dishid }} method="post" action="/menu_detail/">
+                    <form id={{ row.dishid }} method="post" action="/menu_detail/">
+                        <div class="col-lg-6 menu-item filter-RICE_NOODLE">
+                            <div class="menu-content">
                                 <input type="hidden" name="dishid" value={{ row.dishid }}/>
                                 <input type="hidden" name="dishname" value={{ row.dishname }}/>
                                 <input type="hidden" name="type" value={{ row.type }}/>
                                 <input type="hidden" name="price" value={{ row.price }}/>
                                 <input type="hidden" name="description" value={{ row.description }}/>
                                 <input type="hidden" name="dish_picture" value={{ row.dish_picture }}/>
-
                                 <a onclick="document.getElementById({{ row.dishid }}).submit();">{{ row.dishname }}</a>
-
                                 {#                            <a onclick="sendPost_menu_detail('{{ row.dishid }}', '{{ row.dishname }}', '{{ row.type }}', '{{ row.price }}',  '{{ row.description }}')">{{ row.dishname }}</a>#}
-
                                 <span>￡{{ row.price }}</span>
-                            </form>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 {% endif %}
             {% endfor %}
 
             {% for row in data %}
                 {% if row.type == "SOUP_BOWL" %}
-                    <div class="col-lg-6 menu-item filter-SOUP_BOWL">
-                        <div class="menu-content">
-                            <form id={{ row.dishid }} method="post" action="/menu_detail/">
+                    <form id={{ row.dishid }} method="post" action="/menu_detail/">
+                        <div class="col-lg-6 menu-item filter-SOUP_BOWL">
+                            <div class="menu-content">
                                 <input type="hidden" name="dishid" value={{ row.dishid }}/>
                                 <input type="hidden" name="dishname" value={{ row.dishname }}/>
                                 <input type="hidden" name="type" value={{ row.type }}/>
                                 <input type="hidden" name="price" value={{ row.price }}/>
                                 <input type="hidden" name="description" value={{ row.description }}/>
                                 <input type="hidden" name="dish_picture" value={{ row.dish_picture }}/>
-
                                 <a onclick="document.getElementById({{ row.dishid }}).submit();">{{ row.dishname }}</a>
-
                                 {#                            <a onclick="sendPost_menu_detail('{{ row.dishid }}', '{{ row.dishname }}', '{{ row.type }}', '{{ row.price }}',  '{{ row.description }}')">{{ row.dishname }}</a>#}
-
                                 <span>￡{{ row.price }}</span>
-                            </form>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 {% endif %}
             {% endfor %}
 
             {% for row in data %}
                 {% if row.type == "STARTERS" %}
-                    <div class="col-lg-6 menu-item filter-STARTERS">
-                        <div class="menu-content">
-                            <form id={{ row.dishid }} method="post" action="/menu_detail/">
+                    <form id={{ row.dishid }} method="post" action="/menu_detail/">
+                        <div class="col-lg-6 menu-item filter-STARTERS">
+                            <div class="menu-content">
                                 <input type="hidden" name="dishid" value={{ row.dishid }}/>
                                 <input type="hidden" name="dishname" value={{ row.dishname }}/>
                                 <input type="hidden" name="type" value={{ row.type }}/>
                                 <input type="hidden" name="price" value={{ row.price }}/>
                                 <input type="hidden" name="description" value={{ row.description }}/>
                                 <input type="hidden" name="dish_picture" value={{ row.dish_picture }}/>
-
                                 <a onclick="document.getElementById({{ row.dishid }}).submit();">{{ row.dishname }}</a>
-
                                 {#                            <a onclick="sendPost_menu_detail('{{ row.dishid }}', '{{ row.dishname }}', '{{ row.type }}', '{{ row.price }}',  '{{ row.description }}')">{{ row.dishname }}</a>#}
-
                                 <span>￡{{ row.price }}</span>
-                            </form>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 {% endif %}
             {% endfor %}
 
             {% for row in data %}
                 {% if row.type == "BEERS_&_SOFT_DRINKS" %}
-                    <div class="col-lg-6 menu-item filter-BEERS_SOFT_DRINKS">
-                        <div class="menu-content">
-                            <form id={{ row.dishid }} method="post" action="/menu_detail/">
+                    <form id={{ row.dishid }} method="post" action="/menu_detail/">
+                        <div class="col-lg-6 menu-item filter-BEERS_SOFT_DRINKS">
+                            <div class="menu-content">
                                 <input type="hidden" name="dishid" value={{ row.dishid }}/>
                                 <input type="hidden" name="dishname" value={{ row.dishname }}/>
                                 <input type="hidden" name="type" value={{ row.type }}/>
                                 <input type="hidden" name="price" value={{ row.price }}/>
                                 <input type="hidden" name="description" value={{ row.description }}/>
                                 <input type="hidden" name="dish_picture" value={{ row.dish_picture }}/>
-
                                 <a onclick="document.getElementById({{ row.dishid }}).submit();">{{ row.dishname }}</a>
-
                                 {#                            <a onclick="sendPost_menu_detail('{{ row.dishid }}', '{{ row.dishname }}', '{{ row.type }}', '{{ row.price }}',  '{{ row.description }}')">{{ row.dishname }}</a>#}
-
                                 <span>￡{{ row.price }}</span>
-                            </form>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 {% endif %}
             {% endfor %}
 
