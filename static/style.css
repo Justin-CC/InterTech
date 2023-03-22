@@ -1,0 +1,254 @@
+.why-us .box {
+    padding: 50px 30px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all ease-in-out 0.3s;
+    height: 100%;
+}
+
+.why-us .box span {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: lightskyblue;
+    font-family: Ink Free;
+}
+
+.why-us .box h4 {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 0;
+    margin: 20px 0;
+    color: rgb(13, 173, 226);
+    font-family: Ink Free;
+}
+
+.why-us .box p {
+    color: #5565a1;
+    font-size: 15px;
+    font-family: Ink Free;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.why-us .box:hover {
+    background: rgb(44, 167, 209);
+    padding: 30px 30px 70px 30px;
+    box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+}
+
+.why-us .box:hover span,
+.why-us .box:hover h4,
+.why-us .box:hover p {
+    color: #fff;
+}
+
+.contact-us-section .btn-sendmessage {
+    width: 30%;
+    height: 50px;
+    background-color: rgb(42, 118, 143);
+    border-color: rgb(42, 118, 143);
+    margin-bottom: 0.5em;
+    border-radius: 20px;
+}
+
+.contact-us-section .btn-sendmessage > value {
+    font-size: 20px;
+    color: black;
+}
+
+.contact-us-section .btn-sendmessage:hover {
+    width: 30%;
+    background-color: rgb(31, 89, 108);
+    border-color: rgb(31, 89, 108);
+}
+
+.contact-us-section .form-group_2 {
+    margin-left: 14px;
+}
+
+.faqtable {
+    font-family: MV Boli;
+    font-size: 15px;
+}
+
+.carousel-inner .item img {
+    width: 100% !important;
+}
+
+.carousel-inner > .item > img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel {
+    width: 100%;
+    height: auto;
+}
+
+.login-register-form-section{
+    max-width: 350px;
+    margin: 120px auto;
+}
+.login-register-form-section i{
+    width: 10px;
+}
+.login-register-form-section .nav-tabs > li > a{
+    color: black;
+    font-family: Tempus Sans ITC;
+    font-weight: bold;
+    font-size: 30px;
+}
+.login-register-form-section .nav-tabs > li > a,
+.login-register-form-section .nav-tabs > li.active > a{
+    width: 340px;
+    text-align: center;
+    border-radius: 0;
+}
+.login-register-form-section .nav-tabs{
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.login-register-form-section .btn-custom{
+    width: 100%;
+    background-color: rgb(10, 147, 165);
+    border-color: rgb(10, 147, 165);
+    margin-bottom: 0.5em;
+    border-radius: 0;
+    font-family: Tempus Sans ITC;
+    font-weight: bold;
+}
+.login-register-form-section .btn-custom:hover{
+    width: 100%;
+    background-color: rgb(56, 107, 141);
+    border-color: rgb(56, 107, 141);
+    font-family: Tempus Sans ITC;
+    font-weight: bold;
+}
+.login-register-form-section .form-group{
+    padding: 0 20px;
+}
+
+.dish-comment .btn-comment {
+    width: 20%;
+    background-color: rgb(10, 147, 165);
+    border-color: rgb(10, 147, 165);
+    margin-bottom: 0.5em;
+    border-radius: 0;
+    font-family: Tempus Sans ITC;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.dish-comment .btn-comment:hover {
+    width: 20%;
+    background-color: rgb(56, 107, 141);
+    border-color: rgb(56, 107, 141);
+    font-family: Tempus Sans ITC;
+    font-weight: bold;
+}
+
+p, h2 {
+    font-size: 10px;
+    margin-top: 2px;
+    font-family: Tempus Sans ITC;
+}
+
+.menu #menu-flters {
+    padding: 0;
+    margin: 0 auto 0 auto;
+    list-style: none;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.menu #menu-flters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 16px 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    color: #444444;
+    margin: 0 3px 10px 3px;
+    transition: all ease-in-out 0.3s;
+    background: #fff;
+    border: 2px solid rgb(96, 169, 189);
+    border-radius: 50px;
+}
+
+.menu #menu-flters li:hover,
+.menu #menu-flters li.filter-active {
+    color: #fff;
+    background: rgb(96, 169, 189);
+}
+
+.menu #menu-flters li:last-child {
+    margin-right: 0;
+}
+
+.menu .menu-content {
+    margin-top: 30px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    color: rgb(97, 96, 96);
+}
+
+.menu .menu-content::after {
+    content: "......................................................................" "...................................................................." "....................................................................";
+    position: absolute;
+    left: 20px;
+    right: 0;
+    top: -4px;
+    z-index: 1;
+    color: #dad8d4;
+}
+
+.menu .menu-content a {
+    padding-right: 10px;
+    background: #fff;
+    position: relative;
+    z-index: 3;
+    font-weight: 700;
+    color: rgb(6, 107, 141);
+    font-family: Tempus Sans ITC;
+}
+
+.menu .menu-content span {
+    background: #fff;
+    position: relative;
+    z-index: 3;
+    padding: 0 10px;
+    font-weight: 600;
+}
+
+h3 {
+    font-family: "Satisfy", sans-serif;
+}
+
+.section-bg {
+    background-color: white;
+}
+
+.section-title {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.section-title p {
+    margin: 15px auto 0 auto;
+    font-weight: 300;
+}
+
+@media (min-width: 1024px) {
+    .section-title p {
+        width: 50%;
+    }
+}
+
+.menu .menu-content > span {
+    font-family: Tempus Sans ITC;
+    color: rgb(81, 79, 79);
+}
