@@ -10,7 +10,7 @@ from rango.views import register
 # Create your tests here.
 
 
-# The folloiwng code test models.
+# The following code test models and views.
 
 # Test Dish model.
 class DishModelTest(TestCase):
@@ -106,7 +106,7 @@ class UserModelTest(TestCase):
     def test_str_method(self):
         self.assertEqual(str(self.user), self.user.username)
 
-    def test_username_uniqueness(self):
+    def test_username_uniqueness(self):#test uniqueness
         with self.assertRaises(ValidationError):
             User.objects.create(
                 username='testuser', # The same username as in the setUp method

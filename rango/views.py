@@ -1,13 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.shortcuts import redirect
-from django.urls import reverse
 from rango import models
 from .models import User, Dish, Comment, Receive
 
 """
 Homepage
 """
+
 
 
 def index(request):
@@ -110,6 +109,7 @@ View function to response user's request of main menu, and return the correspond
 
 
 def menu(request):
+    # load all dish information through for loop
     queryset = []
     # Get all dishes object
     for dish in Dish.objects.all():
@@ -181,7 +181,7 @@ def menu_detail(request):
         # change the reminder string
         reminder = "Please enter the comment"
 
-    # get all the comments from the dish
+    # find all the comments where match dishid in Comment database
     tempcomments = Comment.objects.filter(dish__dishid=dishid)
     # create a comment list
     comments = []
